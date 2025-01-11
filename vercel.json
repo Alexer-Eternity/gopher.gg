@@ -7,7 +7,7 @@
     }
   ],
   "functions": {
-    "api/proxy.go": {
+    "api/playground-proxy.go": {
       "runtime": "vercel-go@1.1.0"
     }
   }

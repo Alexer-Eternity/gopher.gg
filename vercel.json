@@ -7,8 +7,6 @@
     }
   ],
   "functions": {
-    "api/playground-proxy/main.go": {
-      "runtime": "go1.x"
-    }
+    "api/playground-proxy/main.go"
   }
 }

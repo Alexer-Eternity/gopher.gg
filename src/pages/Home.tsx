@@ -13,6 +13,8 @@ function Home() {
                 </button>
                 <p>
                     Main site currently under Development
+                    <br />
+                    For now, you can use the <Link to="/playground">playground</Link>
                 </p>
                 <p>
                     Built With Vite and React

@@ -1,11 +1,19 @@
 package handler
 
 import (
+	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
+
+// Request structure to hold the incoming JSON body
+type Request struct {
+	Version string `json:"version"`
+	Body    string `json:"body"`
+}
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
@@ -13,22 +21,29 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Read the body from the incoming request
-	reqBody, err := io.ReadAll(r.Body)
+	// Parse the incoming JSON body
+	var reqData Request
+	err := json.NewDecoder(r.Body).Decode(&reqData)
 	if err != nil {
-		http.Error(w, "Failed to read request body", http.StatusBadRequest)
+		http.Error(w, "Failed to parse request body", http.StatusBadRequest)
 		return
 	}
 	defer r.Body.Close()
 
+	// Validate that the body contains Go code
+	goCode := reqData.Body
+	if goCode == "" {
+		http.Error(w, "Go code is missing", http.StatusBadRequest)
+		return
+	}
+
 	// Prepare the form data as application/x-www-form-urlencoded
-	// Assuming that the request body contains JSON, you may want to extract fields or convert it to string form
 	formData := url.Values{}
-	formData.Set("version", "2")
-	formData.Set("body", string(reqBody))
+	formData.Set("version", reqData.Version) // Use the version from the request
+	formData.Set("body", goCode)             // Set the Go code as the body
 
 	// Forward the request to the Go Playground API with form data
-	playgroundURL := "https://go.dev/_/compile?backend=" // Make sure this URL is correct
+	playgroundURL := "https://go.dev/_/compile?backend=" // Correct URL
 	resp, err := http.Post(playgroundURL, "application/x-www-form-urlencoded", strings.NewReader(formData.Encode()))
 	if err != nil {
 		http.Error(w, "Failed to forward request to Go Playground", http.StatusInternalServerError)

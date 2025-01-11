@@ -8,7 +8,7 @@ function Playground() {
         try {
             const requestBody = {
                 version: '2',  
-                body: code,    
+                body: code,   
             };
 
             const response = await fetch('https://www.gopher.gg/api/playground-proxy/main', {
@@ -20,10 +20,14 @@ function Playground() {
             });
 
             const result = await response.json();
+
             if (result.Errors) {
-                setOutput(result.Errors);
+                setOutput(result.Errors); 
+            } else if (result.Events && result.Events.length > 0) {
+                const outputMessages = result.Events.map((event: any) => event.Message).join('\n');
+                setOutput(outputMessages);
             } else {
-                setOutput(result.Events.map((event: any) => event.Message).join(''));
+                setOutput('Unexpected response format.');
             }
         } catch (error) {
             setOutput('Error running code. Please try again.');
@@ -53,7 +57,7 @@ function Playground() {
                     whiteSpace: 'pre-wrap',
                 }}
             >
-                {output}
+                {output}  {/* This should display the output of the Go code */}
             </div>
         </div>
     );

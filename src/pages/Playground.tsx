@@ -6,17 +6,17 @@ function Playground() {
 
     const runCode = async () => {
         try {
-            // Prepare the body as application/x-www-form-urlencoded
-            const formData = new URLSearchParams();
-            formData.append('version', '2');
-            formData.append('body', code);
+            const requestBody = {
+                version: '2',  
+                body: code,    
+            };
 
             const response = await fetch('https://www.gopher.gg/api/playground-proxy/main', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Content-Type': 'application/json',
                 },
-                body: formData.toString(),
+                body: JSON.stringify(requestBody),
             });
 
             const result = await response.json();

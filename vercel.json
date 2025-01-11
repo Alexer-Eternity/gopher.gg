@@ -6,5 +6,9 @@
       "destination": "/"
     }
   ],
-  "functions":  "api/playground-proxy/main.go"
+  "functions": {
+     "api/playground-proxy/main.go": {
+      "memory": 3009,
+      "maxDuration": 30
+    }
 }

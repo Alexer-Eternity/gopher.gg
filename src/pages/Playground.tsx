@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './Playground.css';
 
 function Playground() {
     const [code, setCode] = useState<string>('package main\n\nimport "fmt"\n\nfunc main() {\n\tfmt.Println("Hello, World!")\n}');
@@ -7,8 +8,8 @@ function Playground() {
     const runCode = async () => {
         try {
             const requestBody = {
-                version: '2',  
-                body: code,   
+                version: '2',
+                body: code,
             };
 
             const response = await fetch('https://www.gopher.gg/api/playground-proxy/main', {
@@ -21,10 +22,10 @@ function Playground() {
 
             const result = await response.json();
 
-            if (result.Errors) {
-                setOutput(result.Errors); 
+            if (result.Errors && result.Errors !== '') {
+                setOutput(result.Errors);
             } else if (result.Events && result.Events.length > 0) {
-                const outputMessages = result.Events.map((event: any) => event.Message).join('\n');
+                const outputMessages = result.Events.map((event: any) => event.Message).join('');
                 setOutput(outputMessages);
             } else {
                 setOutput('Unexpected response format.');
@@ -35,29 +36,21 @@ function Playground() {
     };
 
     return (
-        <div style={{ padding: '20px' }}>
+        <div className="playground-container">
             <h1>Go Playground</h1>
             <textarea
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 rows={15}
                 cols={80}
-                style={{ fontFamily: 'monospace', fontSize: '14px', width: '100%', marginBottom: '10px' }}
+                className="textarea"
             ></textarea>
             <br />
-            <button onClick={runCode} style={{ marginBottom: '10px' }}>
+            <button onClick={runCode} className="button">
                 Run Code
             </button>
-            <div
-                style={{
-                    border: '1px solid #ccc',
-                    padding: '10px',
-                    backgroundColor: '#f9f9f9',
-                    fontFamily: 'monospace',
-                    whiteSpace: 'pre-wrap',
-                }}
-            >
-                {output}  {/* This should display the output of the Go code */}
+            <div className="output-box">
+                {output}  {/* This will display the Go code output */}
             </div>
         </div>
     );

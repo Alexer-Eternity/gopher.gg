@@ -6,7 +6,5 @@
       "destination": "/"
     }
   ],
-  "functions": {
-    "api/playground-proxy/main.go"
-  }
+  "functions":  "api/playground-proxy/main.go"
 }

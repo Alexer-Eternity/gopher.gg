@@ -7,7 +7,7 @@ import "./App.css"
 function App() {
     return (
         <div>
-            <h1>Gopher.gg</h1>
+
 
             <Routes>
                 <Route path="/" element={<Home />} />

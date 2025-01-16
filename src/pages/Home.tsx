@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '../assets/vite.svg'
 function Home() {
-    const [count, setCount] = useState(0)
     return (
         <div>
-
+            <h1>Welcome to Gopher.gg</h1>
             <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
+
                 <p>
-                    Main site currently under Development
-                    <br />
-                    For now, you can use the <Link to="/playground">playground</Link>
+
+                    <Link to="/playground">Playground</Link>: Experiment with Go code directly in your browser
                 </p>
                 <p>
-                    Built With Vite and React
+
+                    <Link to="/about">About Go</Link>: Learn about the language. Its history and its advantages
+                </p>
+                <p>
+                  Resources (Coming Soon!): Tutorial, Guides, and more that help you master Go.
                 </p>
             </div>
             <div>

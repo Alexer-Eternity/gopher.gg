@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import reactLogo from '/assets/react.png' // Updated to PNG
+import reactLogo from '/assets/react.svg'
 import viteLogo from '/assets/vite.svg'
 
 function Home() {

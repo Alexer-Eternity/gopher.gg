@@ -4,7 +4,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 const manifestForPlugIn = {
   registerType: 'prompt' as const, // Ensure 'prompt' is treated as a literal type
-  includeAssets: ['gopher.svg',"assets/*"], // Fix typo here: includeAssets instead of includeAssests
+  includeAssets: ['gopher.svg',"assets/*  "], // Fix typo here: includeAssets instead of includeAssests
   manifest: {
     name: "Gopher.gg",
     short_name: "Gopher",

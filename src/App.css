@@ -1,42 +1,75 @@
+/* Center content and limit width for ultra-wide screens */
 #root {
-  max-width: 1280px;
+  min-height: 100vh;
+  max-width: 85vw;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #ffffff;
+  color: #333333;
+  transition: background-color 0.3s, color 0.3s;
+}
+@media screen and (min-width: 1800px) {
+  #root {
+    min-width: 70vw; /* Expand slightly on ultrawide screens */
+    padding: 5rem; /* Adjust padding for balance */
+  }
+
+  .card {
+    max-width: 70vw; /* Ensure content doesn't stretch too much */
+  }
+}
+.card {
+  padding: 2em;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 2em auto;
+  max-width: 900px;
+  transition: background-color 0.3s;
 }
 
+/* Make logos responsive */
 .logo {
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  max-width: 100%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+
+/* Responsive styles for mobile devices */
+@media screen and (max-width: 768px) {
+  #root {
+    padding: 1rem;
+    margin: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .card {
+    padding: 1.5em;
+    margin: 0.5em;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  #root {
+    background-color: #121212;
+    color: #f5f5f5;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .card {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  }
 }

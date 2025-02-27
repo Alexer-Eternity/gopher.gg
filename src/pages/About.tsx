@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import goLogo from '/gopher.svg'
+import goLogo from '/assets/gopher.svg'
 
 function About() {
     return (

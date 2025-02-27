@@ -42,6 +42,8 @@
   #root {
     padding: 1rem;
     margin: 0;
+    max-width: 100vw;
+
   }
 
   .card {

@@ -1,6 +1,8 @@
 /* Center content and limit width for ultra-wide screens */
 #root {
   min-height: 100vh;
+  min-width: 75vw;
+
   max-width: 85vw;
   margin: 0 auto;
   padding: 2rem;

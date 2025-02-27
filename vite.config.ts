@@ -13,12 +13,15 @@ const manifestForPlugIn = {
       {
         src: "/icon1.png",
         type: "image/png",
-        sizes: "192x192"
+        sizes: "192x192",
+        purpose: "any maskable"
       },
       {
         src: "/icon2.png",
         type: "image/png",
-        sizes: "512x512"
+        sizes: "512x512",
+        purpose: "any maskable"
+
       }
     ],
     theme_color: '#000000',

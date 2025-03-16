@@ -12,7 +12,7 @@ function Playground() {
                 body: code,
             };
 
-            const response = await fetch('https://www.gopher.gg/api/playground-proxy/main', {
+            const response = await fetch('https://www.gopher.gg/api/playground-proxy', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

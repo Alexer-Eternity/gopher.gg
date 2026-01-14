@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import Editor from '@monaco-editor/react'; // 1. Import the Editor
 import './Playground.css';
 
 function Playground() {
+    // Keep your existing state
     const [code, setCode] = useState<string>('package main\n\nimport "fmt"\n\nfunc main() {\n\tfmt.Println("Hello, World!")\n}');
     const [output, setOutput] = useState<string>('');
 
@@ -35,22 +37,36 @@ function Playground() {
         }
     };
 
+    // 2. Helper to handle editor changes
+    const handleEditorChange = (value: string | undefined) => {
+        setCode(value || '');
+    };
+
     return (
         <div className="playground-container">
             <h1>Go Playground</h1>
-            <textarea
-                value={code}
-                onChange={(e) => setCode(e.target.value)}
-                rows={15}
-                cols={80}
-                className="textarea"
-            ></textarea>
-            <br />
+
+            <div className="editor-wrapper" style={{ border: '1px solid #ccc', marginBottom: '1rem' }}>
+                <Editor
+                    height="400px"
+                    defaultLanguage="go"
+                    theme="vs-dark"
+                    value={code}
+                    onChange={handleEditorChange}
+                    options={{
+                        minimap: { enabled: false },
+                        fontSize: 14,
+                        scrollBeyondLastLine: false,
+                    }}
+                />
+            </div>
+
             <button onClick={runCode} className="button">
                 Run Code
             </button>
+
             <div className="output-box">
-                {output}  {/* This will display the Go code output */}
+                <pre>{output}</pre>
             </div>
         </div>
     );

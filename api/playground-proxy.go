@@ -14,6 +14,27 @@ type Request struct {
 }
 
 func Handler(w http.ResponseWriter, r *http.Request) {
+	// CORS CONFIGURATION
+	origin := r.Header.Get("Origin")
+	allowed := false
+
+	if strings.HasPrefix(origin, "http://localhost") || strings.HasPrefix(origin, "https://localhost") {
+		allowed = true
+	}
+	if strings.HasSuffix(origin, ".vercel.app") {
+		allowed = true
+	}
+
+	if allowed {
+		w.Header().Set("Access-Control-Allow-Origin", origin)
+		w.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+	}
+
+	if r.Method == http.MethodOptions {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return

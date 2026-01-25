@@ -16,7 +16,7 @@ function Home() {
                     <Link to="/about">About Go</Link>: Learn about the language, its history, and its advantages
                 </p>
                 <p>
-                    Resources (Coming Soon!): Tutorial, Guides, and more that help you master Go.
+                    <Link to="/resources">About Go</Link>: Tutorial, Guides, and more that help you master Go.
                 </p>
             </div>
             <div>

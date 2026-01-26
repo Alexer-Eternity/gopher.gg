@@ -1,20 +1,34 @@
-
-import favicon from '/favicon.png'; // Adjust the path if necessary
-function Home() {
+import resourcesData from './resources.json';
+function Resources() {
     return (
-        <div>
-            <img src={favicon} alt="Site Logo" style={{width: '200px', height: '200px'}}/>
+        <div className="resources-container">
+            <header className="resources-header">
+                <h1>Resources for Go</h1>
+            </header>
 
-            <h1>Resources for Go</h1>
+            <div className="resources-grid">
 
-
+                {resourcesData.map((category, index) => (
+                    <div key={index} className="resource-card">
+                        <h2 className="card-title">{category.title}</h2>
+                        <ul className="resource-list">
+                            {category.links.map((link, linkIndex) => (
+                                <li key={linkIndex} className="resource-item">
+                                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="resource-link">{link.name}</a>
+                                    <p className="resource-desc">{link.desc}</p>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
         </div>
-    )
+    );
 }
 
 
 
-
+export default Resources
 
 
 

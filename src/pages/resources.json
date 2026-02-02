@@ -1,20 +1,20 @@
 [
   {
-    "title": "Sample Resources",
+    "title": "Official Resources",
     "links": [
       {
-        "name": "Sample Documentation",
-        "url": "https://golant.org/doc",
+        "name": "Official Documentation",
+        "url": "https://golang.org/doc",
         "desc": "The source of truth for go"
 
       }, {
-        "name": "Sample Documentation",
-        "url": "https://golant.org/doc",
-        "desc": "The source of truth for go"
+        "name": "A Tour of Go",
+        "url": "https://tour.golang.org/welcome/1",
+        "desc": "Interactive introduction to the lange"
 
       }, {
-        "name": "Sample Documentation",
-        "url": "https://golant.org/doc",
+        "name": "Effective Go",
+        "url": "https://golang.org/doc/efective_go.html",
         "desc": "The source of truth for go"
 
       }]
@@ -26,54 +26,47 @@
   }, {
 
 
-  "title": "Sample Resources",
+  "title": "Interactive learning",
   "links": [
     {
-      "name": "Sample Documentation",
-      "url": "https://golant.org/doc",
-      "desc": "The source of truth for go"
+      "name": "Go by Example",
+      "url": "https://gobyexample.com",
+      "desc": "Hands-on introduciton using annotated example programs"
 
     }, {
-      "name": "Sample Documentation",
-      "url": "https://golant.org/doc",
-      "desc": "The source of truth for go"
+      "name": "Gophercises",
+      "url": "https://gophercises.com",
+      "desc": "Free coding excercises for budding Gophers. "
 
     }, {
-      "name": "Sample Documentation",
-      "url": "https://golant.org/doc",
-      "desc": "The source of truth for go"
+      "name": "Learn Go with Tests",
+      "url": "https://quii.gitbook.io/learn-go-with-tests",
+      "desc": "Learn Go syntax through TDD."
 
     }]
 
 
   },{
 
-  "title": "Sample Resources",
+  "title": "Community & Libraries",
   "links": [
     {
-      "name": "Sample Documentation",
-      "url": "https://golant.org/doc",
-      "desc": "The source of truth for go"
+      "name": "Awesome Go",
+      "url": "https://github.com/avelino/awesome-go",
+      "desc": "A massive curated listt of Go frameworks and libraries "
 
     }, {
-      "name": "Sample Documentation",
-      "url": "https://golant.org/doc",
-      "desc": "The source of truth for go"
-
-    }, {
-      "name": "Sample Documentation",
-      "url": "https://golant.org/doc",
-      "desc": "The source of truth for go"
+      "name": "Go Time Podcast",
+      "url": "https://github.com/avelino/awesome-go",
+      "desc": "A massive curated list of Go frameworks and library"
 
     }]
-
-
-
-
-  }
+}
 
 
 
 ]
+
+
 
 

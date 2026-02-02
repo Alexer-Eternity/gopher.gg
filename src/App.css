@@ -107,7 +107,7 @@ resource-card:hover {
   margin-top: 0;
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
-  color: #333;
+  color: #D3D3D3;
 }
 
 .resource-list {
@@ -129,4 +129,8 @@ resource-card:hover {
   color: #00ADD8;
   text-decoration: none;
   font-size: 1.1rem;
+}
+.articles-container {
+  max-width: 800px;
+  margin: 40px auto;
 }
